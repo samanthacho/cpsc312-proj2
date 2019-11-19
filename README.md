@@ -1,2 +1,6 @@
 # cpsc312-proj2
 CPSC312 Project 2
+
+Authors:
+SAMANTHA CHO: 16236168
+SRIJON SAHA: 
