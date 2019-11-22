@@ -1,11 +1,13 @@
-% Prolog representation of a context-free grammar for a very restricted subset of English
+% Modified language script
 
-% This is slightly expanded code of Figures 13.7 & 13.8 in Section 13.6.1 of
-% Poole and Mackworth, Artificial Intelligence: foundations of
-% computational agents, Cambridge, 2017.
+q(Ans) :-
+    write("Let's find some food! Ask me: "), flush_output(current_output),
+    readln(Ln),
+	maplist(downcase_atom, Ln, Ln_lowercase),
+    question(Ln_lowercase,End,Ans),
+    member(End,[[],['?'],['.']]).
 
-% Copyright (c) David Poole and Alan Mackworth 2017. This program
-% is released under GPL, version 3 or later; see http://www.gnu.org/licenses/gpl.html
+question(Ln,End,Ans) :- noun_phrase(Ln,End,Ans).
 
 append([],X,X).
 append([X|Y],Z,[X|W]) :- append(Y,Z,W).
