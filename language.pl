@@ -1,4 +1,5 @@
 % Modified language script
+:- consult(kb).
 
 % Create/append element of a list, used for constructing the list of search parameters
 append([],X,X).

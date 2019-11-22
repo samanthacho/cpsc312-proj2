@@ -1,6 +1,5 @@
 % User interface. The file that the user runs to make queries.
-:- [language].
-:- [kb].
+:- consult(language).
 
 % Main user function
 q(Ans) :-
