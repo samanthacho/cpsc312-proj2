@@ -1,4 +1,4 @@
-% Modified language script
+% User interface. The file that the user runs to make queries.
 :- [language].
 :- [kb].
 
@@ -9,7 +9,3 @@ q(Ans) :-
 	maplist(downcase_atom, Ln, Ln_lowercase),
     question(Ln_lowercase,End,Ans),
     member(End,[[],['?'],['.']]).
-
-question(T0, T2, Params) :-
-  starter_phrase(T0, T1),
-  noun_phrase(T1,T2,Params).

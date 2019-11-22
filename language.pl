@@ -4,6 +4,11 @@
 append([],X,X).
 append([X|Y],Z,[X|W]) :- append(Y,Z,W).
 
+% Question definition; used to create the list of parameters.
+question(T0, T2, Params) :-
+  starter_phrase(T0, T1),
+  noun_phrase(T1,T2,Params).
+
 % Starter phrases to parse out from the query to only leave elements we care about.
 starter_phrase(['what', Verb | T], T) :-
   to_be_conj(Verb).
