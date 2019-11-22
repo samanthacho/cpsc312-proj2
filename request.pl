@@ -17,4 +17,18 @@ make_translation_request(Query, Response) :-
 
 parse_translation_response([json([detectedLanguage=json([language=_, score=_]), translations=[json([text=Result,  to=_])]])], Result).
 
+yelp_api_url("https://api.yelp.com/v3/businesses/search?").
 
+yelp_api_key(Key) :-
+    getenv("YELP_API_KEY", Key).
+
+param_url(Query, ParamURL) :-
+    yelp_api_url(URL),
+    atom_concat(URL, "term=", Part1),
+    atom_concat(Part1, Query, Part2),
+    atom_concat(Part2, "&location=vancouver", ParamURL).
+
+make_yelp_search_request(Query, Response) :-
+    param_url(Query, URL),
+    yelp_api_key(Key),
+    http_get(URL, Response, [request_header("Authorization"=Key)]).
