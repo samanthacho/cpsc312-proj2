@@ -20,8 +20,50 @@ preposition([of | Rest], Rest).
 preposition([with | L],L).
 preposition([on | L],L).
 
-% Dictionary of adjectives that will return search parameters.
+% property ([T0|T],T,Prop) is true if T0 is a term interpreted to be referring to prop
+property([name | Rest], Rest, name).
+property([names | Rest], Rest, name).
+property([number,of,reviews | Rest], Rest, reviews).
+property([numbers,of,reviews | Rest], Rest, reviews).
+property([review,count | Rest], Rest, reviews).
+property([review,counts | Rest], Rest, reviews).
+property([address | Rest], Rest, address).
+property([addresses | Rest], Rest, address).
+property([location | Rest], Rest, address).
+property([locations | Rest], Rest, address).
+property([category | Rest], Rest, categories).
+property([categories | Rest], Rest, categories).
+property([rating | Rest], Rest, rating).
+property([ratings | Rest], Rest, ratings).
+property([price | Rest], Rest, price).
+property([cost | Rest], Rest, price).
+property([prices | Rest], Rest, price).
+property([costs | Rest], Rest, price).
+property([expensiveness | Rest], Rest, price).
+property([costs | Rest], Rest, price).
+property([costliness | Rest], Rest, price).
+property([phone | Rest], Rest, phone).
+property([phones | Rest], Rest, phone).
+property([telephone | Rest], Rest, phone).
+property([telephones | Rest], Rest, phone).
+property([number | Rest], Rest, phone).
+property([numbers | Rest], Rest, phone).
+property([phone,number | Rest], Rest, phone).
+property([phone,numbers | Rest], Rest, phone).
+property([telephone,number | Rest], Rest, phone).
+property([telephone,numbers | Rest], Rest, phone).
+property([state | Rest], Rest, state).
+property([states | Rest], Rest, state).
+property([province | Rest], Rest, state).
+property([provinces | Rest], Rest, state).
+property([zip | Rest], Rest, zip).
+property([zips | Rest], Rest, zip).
+property([postal,code | Rest], Rest, zip).
+property([postal,codes | Rest], Rest, zip).
+property([city | Rest], Rest, city).
+property([cities | Rest], Rest, city).
 
+% Dictionary of adjectives that will return search parameters.
 adj([expensive | T],T,'price=3,4').
 adj([pricy | T], T, 'price=3,4').
 adj([cheap | T], T, 'price=1,2').

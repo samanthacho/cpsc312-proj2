@@ -5,10 +5,25 @@
 append([],X,X).
 append([X|Y],Z,[X|W]) :- append(Y,Z,W).
 
-% Question definition; used to create the list of parameters.
+% Question definition; used to create the list of parameters for a noun phrase.
 question(T0, T2, Params) :-
   starter_phrase(T0, T1),
   noun_phrase(T1,T2,Params).
+
+question(T0, T2, Params) :-
+   starter_phrase(T0, T1),
+   compound_noun_phrase(T1,T2,Params).
+
+compound_noun_phrase(T0, T4, Params) :-
+    determiner(T0, T1, 'limit=1'),
+    property(T1, T2, Part1),
+    preposition(T2, T3),
+    noun_phrase(T3, T4, Part2),
+    append(Part2, Part1, Params).
+
+determiner(T0,T2,Param) :-
+  det(T0,T2,Param).
+determiner(T,T,[]).
 
 % Starter phrases to parse out from the query to only leave elements we care about.
 starter_phrase(['what', Verb | T], T) :-
