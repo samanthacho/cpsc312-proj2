@@ -1,26 +1,32 @@
-% Knowledge base for the queries
+% Knowledge base (Dictionary) for the queries
 
-% dictionary
+% det ([T0|T], T) Determinant definition; returns true if T0 is
+% a defined determinant or if there is no determinant
+% Gives the parameter for the number of restaurants to return
 det([a | Rest], Rest, 'limit=1').
 det([an | Rest], Rest, 'limit=1').
 det([the | Rest], Rest, 'limit=1').
 det([two | Rest], Rest, 'limit=2').
 det([three | Rest], Rest, 'limit=3').
 det([some | Rest], Rest, 'limit=3').
-det(T,T).
+det(T,T,_).
 
 % noun ([T0|T], T) is true if T0 is a noun supported by this program
+% namely, if the noun is a restaurant
 noun([restaurant | T],T).
 noun([place,to,eat | T],T).
 noun([restaurants | T],T).
 noun([places,to,eat | T],T).
 
-% proposition([T|R],R) is true if T0 is a proposition supported by this program. In this case, 'of' is the only supported proposition.
+% proposition([T|R],R) is true if T is a proposition supported by this program.
+% the defined propositions are 'of', 'with', 'on' here.
 preposition([of | Rest], Rest).
 preposition([with | L],L).
 preposition([on | L],L).
 
 % property ([T0|T],T,Prop) is true if T0 is a term interpreted to be referring to prop
+% the properties here are valid queries to the yelp API
+% e.g. what is the name of a chinese restaurant?
 property([name | Rest], Rest, name).
 property([names | Rest], Rest, name).
 property([number,of,reviews | Rest], Rest, reviews).
@@ -52,18 +58,11 @@ property([phone,number | Rest], Rest, phone).
 property([phone,numbers | Rest], Rest, phone).
 property([telephone,number | Rest], Rest, phone).
 property([telephone,numbers | Rest], Rest, phone).
-property([state | Rest], Rest, state).
-property([states | Rest], Rest, state).
-property([province | Rest], Rest, state).
-property([provinces | Rest], Rest, state).
-property([zip | Rest], Rest, zip).
-property([zips | Rest], Rest, zip).
-property([postal,code | Rest], Rest, zip).
-property([postal,codes | Rest], Rest, zip).
-property([city | Rest], Rest, city).
-property([cities | Rest], Rest, city).
 
-% Dictionary of adjectives that will return search parameters.
+% Dictionary of adjectives that will return search parameters to the Yelp API query.
+
+% These adjectives give sorting/pricing arguments to the query
+% i.e. distiguishes between expensive restaurants, best-rated restaurants etc.
 adj([expensive | T],T,'price=3,4').
 adj([pricy | T], T, 'price=3,4').
 adj([cheap | T], T, 'price=1,2').
@@ -76,6 +75,8 @@ adj([amazing | T], T, 'sort_by=rating').
 adj([outstanding | T], T, 'sort_by=rating').
 adj([fantastic | T], T, 'sort_by=rating').
 
+% These adjectives give the parameter for the type of food we are searching for
+% Pretty self explanatory, i.e. chinese, lebanese, etc.
 adj(['afghan'| T], T, 'categories=afghani').
 adj(['african'| T], T, 'categories=african').
 adj(['andalusian'| T], T, 'categories=andalusian').
