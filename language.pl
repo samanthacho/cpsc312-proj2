@@ -16,10 +16,9 @@ question(T0, T2, Params) :-
 
 compound_noun_phrase(T0, T4, Params) :-
     determiner(T0, T1, 'limit=1'),
-    property(T1, T2, Part1),
+    property(T1, T2, _),
     preposition(T2, T3),
-    noun_phrase(T3, T4, Part2),
-    append(Part2, Part1, Params).
+    noun_phrase(T3, T4, Params).
 
 determiner(T0,T2,Param) :-
   det(T0,T2,Param).
