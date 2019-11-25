@@ -46,3 +46,9 @@ print_business([url=Url | L1], Lang) :-
     atom_concat(Part, Url, Ln),
     writeln(Ln),
     print_business(L1, Lang).
+print_business([location=Location | L1], Lang) :-
+    translate("Location", Lang, _, Translation),
+    atom_concat(Translation, ": ", Part),
+    atom_concat(Part, Location, Ln),
+    writeln(Ln),
+    print_business(L1, Lang).

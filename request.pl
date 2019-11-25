@@ -59,6 +59,15 @@ parse_business_helper([display_phone=Phone | L1], [phone=Phone | L2]) :-
     parse_business_helper(L1, L2).
 parse_business_helper([url=Url | L1], [url=Url | L2]) :-
     parse_business_helper(L1, L2).
+parse_business_helper([location=json(LocAttributes) | L1], [location=Location | L2]) :-
+    parse_location(LocAttributes, Location),
+    parse_business_helper(L1, L2).
 parse_business_helper([Term=_ | L1], L2) :-
     \+ member(Term, [name, rating, price, display_phone, url]),
     parse_business_helper(L1, L2).
+
+parse_location([], "").
+parse_location([address1=Location | _], Location).
+parse_location([att=_ | T], Location) :-
+    att \= address1,
+    parse_location(T, Location).
