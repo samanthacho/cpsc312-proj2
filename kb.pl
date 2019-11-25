@@ -6,6 +6,7 @@
 det([a | Rest], Rest, 'limit=1').
 det([an | Rest], Rest, 'limit=1').
 det([the | Rest], Rest, 'limit=1').
+det([one | Rest], Rest, 'limit=1').
 det([two | Rest], Rest, 'limit=2').
 det([three | Rest], Rest, 'limit=3').
 det([some | Rest], Rest, 'limit=3').

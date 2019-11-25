@@ -11,8 +11,8 @@ q() :-
     atomics_to_string(Ln, " ", Str),
     translate(Str, "en", DetectedLang, Translation),
     atomics_to_string(TranslationLst, " ", Translation),
-	maplist(downcase_atom, TranslationLst, TranslationLowercase),
-    question(TranslationLowercase, End, Ans),
+	  maplist(downcase_atom, TranslationLst, TranslationLowercase),
+    once(question(TranslationLowercase, End, Ans)),
     member(End, [[]]),
     search(Ans, Result),
     display_results(Result, DetectedLang).
