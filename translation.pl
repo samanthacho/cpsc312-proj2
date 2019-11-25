@@ -1,6 +1,6 @@
-:- use_module(request).
+:- consult(request).
 
-translate(Query, Translation) :-
-    make_translation_request(Query, Response),
-    parse_translation_response(Response, Translation).
+translate(Query, ToLang, FromLang, Translation) :-
+    make_translation_request(Query, ToLang, Response),
+    parse_translation_response(Response, Translation, FromLang).
 
