@@ -27,5 +27,19 @@ Example queries:
 
 What is an expensive chinese restaurant
 
+What is an excellent expensive restaurant
+
+find me some good german restaurants
+
+знайти деякі хороші німецькі ресторани
+(Find me some good german restaurants)
+
 ce qui est un restaurant chinois cher
+(What is an expensive chinese restaurant)
+
+Tìm cho tôi một số nhà hàng Trung Quốc giá rẻ tốt
+(Find me some good cheap Chinese restaurants)
+
+что такое один хороший французский ресторан
+(What is one good French restaurant)
 
