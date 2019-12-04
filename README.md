@@ -27,7 +27,31 @@ Example queries:
 
 What is an expensive chinese restaurant
 
+------------------------------------------------------------------------------------------------------
+
+Name: Bao Bei Chinese Brasserie
+URL: https://www.yelp.com/biz/bao-bei-chinese-brasserie-vancouver?adjust_creative=Mzfv4d28quTDzD83TMFB7Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Mzfv4d28quTDzD83TMFB7Q
+Rating: 4.0
+Price: $$$
+Location: 163 Keefer Street
+Phone: +1 604-688-0876
+
+true.
+
+------------------------------------------------------------------------------------------------------
+
 What is an excellent expensive restaurant
+
+------------------------------------------------------------------------------------------------------
+Name: AnnaLena
+URL: https://www.yelp.com/biz/annalena-vancouver?adjust_creative=Mzfv4d28quTDzD83TMFB7Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Mzfv4d28quTDzD83TMFB7Q
+Rating: 4.5
+Price: $$$
+Location: 1809 W 1st Avenue
+Phone: +1 778-379-4052
+
+true.
+------------------------------------------------------------------------------------------------------
 
 find me some good german restaurants
 
